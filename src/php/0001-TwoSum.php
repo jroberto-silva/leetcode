@@ -12,16 +12,33 @@ class Solution
     {
         asort($nums);
 
-        $values = array_values($nums);
-        $keys = array_keys($nums);
+        $count = 0;
 
-        $i = 0;
-        $j = count($nums) - 1;
+        $values = [];
+        $keys = [];
 
-        while (($sum = $values[$i] + $values[$j]) != $target) {
-            ($sum < $target) ? $i++ : $j--;
+        foreach ($nums as $key => $value) {
+            $count++;
+
+            if ($value > $target) {
+                break;
+            }
+
+            $values[] = $value;
+            $keys[] = $key;
         }
 
-        return [$keys[$i], $keys[$j]];
+        $i = 0;
+        $j = $count - 1;
+
+        while (1) {
+            $sum = $values[$i] + $values[$j];
+
+            if ($sum == $target) {
+                return [$keys[$i], $keys[$j]];
+            }
+
+            ($sum < $target) ? $i++ : $j--;
+        }
     }
 }
