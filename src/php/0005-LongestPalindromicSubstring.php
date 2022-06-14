@@ -3,45 +3,46 @@
 
 class Solution
 {
+    private function findLongestPalindromeLen($s, $left, $right, $previousLongestLen)
+    {
+        while (1) {
+            for ($i = $left, $j = $right; $i < $j && $s[$i] == $s[$j]; $i++, $j--) { }
+
+            /**
+             * If $i >= $j, so palindrome verification ended
+             */
+            if ($i >= $j) {
+                break;
+            }
+
+            /**
+             * If final $j (right unmatched char) pos - initial left pos was < $previousLongestLen, 
+             * it is no longer necessary to check, as you cannot have a palindrome greater than the previous one
+             */
+            if ($j - $left < $previousLongestLen) {
+                return 0;
+            }
+
+            $right--;
+        }
+
+        return $right - $left + 1;
+    }
 
     function longestPalindrome($s)
     {
         $len = strlen($s);
 
+        $left = 0;
         $longestLen = 0;
-        $longestString = '';
-
-        $maxRight = 0;
 
         for ($i = 0; $i < $len; $i++) {
 
-            $isPalindrome = false;
+            $palindromeLen = $this->findLongestPalindromeLen($s, $i, $len - 1, $longestLen);
 
-            for ($left = $i, $right = $len - 1; $right >= $left; $right--) {
-                if ($right - $left < $longestLen || $right == $maxRight) {
-                    break;
-                }
-                
-                if ($s[$left] != $s[$right]) {
-                    continue;
-                }
-
-                $substringLen = $right - $left + 1;
-
-                $substring = substr($s, $left, $substringLen);    
-                $reversedSubstring = strrev($substring);
-
-                if ($substring == $reversedSubstring) {
-                    $isPalindrome = true;
-                    break;
-                }
-            }
-
-            if ($isPalindrome && $substringLen > $longestLen) {
-                $maxRight = $right;
-
-                $longestLen = $substringLen;
-                $longestString = $substring;
+            if ($palindromeLen > $longestLen) {
+                $left = $i;
+                $longestLen = $palindromeLen;
             }
 
             if ($longestLen > ($len - $i)) {
@@ -49,6 +50,6 @@ class Solution
             }
         }
 
-        return $longestString ?: $s[0];
+        return $longestLen ? substr($s, $left, $longestLen) : $s[0];
     }
 }
