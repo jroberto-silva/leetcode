@@ -9,11 +9,12 @@ class Solution {
      * @return String
      */
     function convert($s, $numRows) {
-        if ($numRows == 1) {
+        $len = strlen($s);
+
+        if ($numRows == 1 || $len <= $numRows) {
             return $s;
         }
 
-        $len = strlen($s);
         $result = '';
 
         $columnIncrement = ($numRows - 1) * 2;
