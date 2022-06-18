@@ -12,3 +12,4 @@ This repository is intended to share my progress in solving the problems availab
 |0005|[Longest Palindromic Substring](https://leetcode.com/problems/longest-palindromic-substring/)|[PHP](./src/php/0005-LongestPalindromicSubstring.php)|Medium|
 |0006|[Zigzag Conversion](https://leetcode.com/problems/zigzag-conversion/)|[PHP](./src/php/0006-ZigZagConversion.php)|Medium|
 |0007|[Reverse Integer](https://leetcode.com/problems/reverse-integer)|[PHP](./src/php/0007-ReverseInteger.php)|Medium|
+|0008|[String to Integer (atoi)](https://leetcode.com/problems/string-to-integer-atoi/)|[PHP](./src/php/0008-StringToInteger.php)|Medium|
