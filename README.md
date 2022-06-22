@@ -15,3 +15,4 @@ This repository is intended to share my progress in solving the problems availab
 |0008|[String to Integer (atoi)](https://leetcode.com/problems/string-to-integer-atoi/)|[PHP](./src/php/0008-StringToInteger.php)|Medium|
 |0009|[Palindrome Number](https://leetcode.com/problems/palindrome-number/)|[PHP](./src/php/0009-PalindrommeNumber.php)|Easy|
 |0010|[Regular Expression Matching](https://leetcode.com/problems/regular-expression-matching/)|[PHP](./src/php/0010-RegularExpressionMatching.php)|Hard|
+|0011|[Container With Most Water](https://leetcode.com/problems/container-with-most-water/)|[PHP](./src/php/0011-ContainerWithMostWater.php)|Medium|
